@@ -100,9 +100,9 @@ CREATE TABLE `t_bz` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dxmodel`;
 CREATE TABLE `t_dxmodel` (
-  `dxid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
-  `content` varchar(500) DEFAULT NULL COMMENT '内容',
-  PRIMARY KEY (`nid`)
+                             `dxid`    bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+                             `content` varchar(500) DEFAULT NULL COMMENT '内容',
+                             PRIMARY KEY (`dxid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -421,17 +421,17 @@ CREATE TABLE `t_roleuser` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_rzvip`;
 CREATE TABLE `t_rzvip` (
-  `rid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
-  `uid` bigint(20) NOT NULL  COMMENT '用户id t_user表uid',
-  `xl` varchar(40) DEFAULT NULL COMMENT '学历',
-  `ism` tinyint(4) DEFAULT NULL COMMENT '婚否（0已婚，1未婚）',
-  `bschool` varchar(30) DEFAULT NULL COMMENT '毕业学校',
-  `addr` varchar(40) NOT NULL COMMENT '居住地址',
-  `work` varchar(30) DEFAULT NULL COMMENT '现工作',
-  `age` int(11) DEFAULT NULL COMMENT '年龄',
-  `int1` bigint(20) DEFAULT NULL COMMENT '预留字段',
-  `str1` varchar(20) DEFAULT NULL COMMENT '预留字段',
-  PRIMARY KEY (`uid`)
+                           `rid`     bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '主键id',
+                           `uid`     bigint(20)  NOT NULL COMMENT '用户id t_user表uid',
+                           `xl`      varchar(40) DEFAULT NULL COMMENT '学历',
+                           `ism`     tinyint(4)  DEFAULT NULL COMMENT '婚否（0已婚，1未婚）',
+                           `bschool` varchar(30) DEFAULT NULL COMMENT '毕业学校',
+                           `addr`    varchar(40) NOT NULL COMMENT '居住地址',
+                           `work`    varchar(30) DEFAULT NULL COMMENT '现工作',
+                           `age`     int(11)     DEFAULT NULL COMMENT '年龄',
+                           `int1`    bigint(20)  DEFAULT NULL COMMENT '预留字段',
+                           `str1`    varchar(20) DEFAULT NULL COMMENT '预留字段',
+                           PRIMARY KEY (`rid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
