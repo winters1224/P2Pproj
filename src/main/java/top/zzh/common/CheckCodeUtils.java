@@ -11,7 +11,7 @@ public class CheckCodeUtils {
 
     private static final String CODES = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXY0123456789";
 
-    private static final int CODE_LENGTH = 5;
+    private static final int CODE_LENGTH = 4;
 
     private static final int IMAGE_WIDTH = 85;
 

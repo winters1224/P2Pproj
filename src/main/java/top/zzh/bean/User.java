@@ -1,5 +1,7 @@
 package top.zzh.bean;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+
 //前台用户表
 public class User {
     private Long uid;
@@ -167,5 +169,10 @@ public class User {
 
     public void setStr1(String str1) {
         this.str1 = str1;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }

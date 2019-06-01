@@ -1,13 +1,10 @@
 package top.zzh.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.sun.deploy.net.HttpUtils;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.zzh.bean.BankCard;
@@ -55,11 +52,13 @@ public class BankCardController {
         logger.info("绑定银行卡");
         Long uid=(Long) session.getAttribute(Constants.USER_ID_SESSION);
         User user =(User)session.getAttribute("users");
+        logger.info("user:{}", user);
+
         String bank=bankService.getBankName(bankCard.getType());//银行
         String params="realName="+user.getRname()+"&bank="+bank+"&bankCardNo="+bankCard.getCardno()+"&phone="+user.getPhone();
         JSONObject jsonObject=BankUtils.jsonObject("http://localhost:8081/bank/bind",params);
         ControllerStatusVO statusVO = null;
-        Long lo=(Long)bankCardService.countDank(uid);
+        Long lo = bankCardService.countDank(uid);
         if (lo==1){//已经绑定银行卡
             statusVO = ControllerStatusVO.status(ControllerStatusEnum.UERS_BANK_FAIL);
             JSONObject.fromObject(statusVO);
@@ -99,7 +98,7 @@ public class BankCardController {
         ControllerStatusVO statusVO = null;
         Long uid=(Long) session.getAttribute(Constants.USER_ID_SESSION);
         User user =(User)session.getAttribute("users");
-        String cardno =(String)bankCardService.getDank(uid);//银行卡号
+        String cardno = bankCardService.getDank(uid);//银行卡号
         String type =bankCardService.getType(uid);//所属银行
         String bank=bankService.getBankName(type);//银行
         String params="realName="+user.getRname()+"&bank="+bank+"&bankCardNo="+cardno+"&phone="+user.getPhone();
